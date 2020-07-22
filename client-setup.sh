@@ -11,8 +11,8 @@ make
 sudo make install
 
 
-
-/*sudo bash -c "cat >> /etc/systemd/system/netserver.service" << EOL
+:'
+sudo bash -c "cat >> /etc/systemd/system/netserver.service" << EOL
 [Unit]
 Description=netperf server
 After=network.target
@@ -26,8 +26,8 @@ WantedBy=multi-user.target
 EOL
 
 sudo systemctl enable netserver
-sudo systemctl start netserver */
-
+sudo systemctl start netserver
+'
 
 
 # install python 3
