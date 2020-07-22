@@ -43,16 +43,16 @@
 # Global settings
 [Batch::global]
 # Change below to suit the environment (also see sce and l4s sections)
-m1_ssh = pete@m1
+m1_ssh = M1
 m1_left_iface = ens192
 m1_right_iface = ens224
-m2_ssh = pete@m2
+m2_ssh = M2
 m2_left_iface = ens192
 m2_right_iface = ens224
-m3_ssh = pete@m3
+m3_ssh = M3
 m3_left_iface = ens192
 m3_right_iface = ens224
-m4_ssh = pete@m4
+m4_ssh = M4
 m4_left_iface = ens192
 m4_right_iface = ens224
 # Don't need to change below here
@@ -95,11 +95,11 @@ draft_name = SCE
 # L4S settings
 [Batch::l4s]
 abstract = yes
-c_ssh = pete@c2
+c_ssh = client
 c_right_iface = ens192
-s_ssh = pete@s2
+s_ssh = dstn
 s_left_iface = ens192
-hosts = ts2
+hosts = dstn
 draft_name = L4S
 
 # One-flow test settings
