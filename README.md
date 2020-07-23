@@ -1,3 +1,8 @@
+This repo contains tests using Flent to evaluate L4S.
+
+It is designed for use on the [CloudLab](https://www.cloudlab.us/) testbed.
+
+
 ### Instructions
 
 To start this experiment on [CloudLab](https://www.cloudlab.us/):
