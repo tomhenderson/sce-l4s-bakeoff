@@ -3,10 +3,10 @@
 
 Instructions:
 
-To start this experiment:
+To start this experiment on [CloudLab](https://www.cloudlab.us/):
 
-1. Instantiate the profile.
-2. Parameterize your experiment. Supply the URL to a Git repository that contains the bakeoff scripts, and the name of the setup scripts to run on the client and receiver nodes, or keep the default values. Click "Next".
+1. Visit the [profile page](https://www.cloudlab.us/p/CloudLab/sce-l4s-bakeoff-git) and click "Next".
+2. Parameterize your experiment. If you have forked this repository and made changes, supply the URL to your fork, and the name of the setup scripts to run on the client and receiver nodes. If not, you can keep the default values. Click "Next".
 3. The experiment topology will be illustrated on the right side. Choose the "Cloudlab Wisconsin" cluster. Click "Next"
 4. Set your experiment duration and click "Finish".
 5. Wait while your experiment resources are configured. Then, refer to the instructions in the "Instructions" tab.
