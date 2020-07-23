@@ -1,4 +1,4 @@
-This repo contains tests using Flent to evaluate L4S.
+This repo contains tests using Flent to evaluate L4S, following https://github.com/heistp/sce-l4s-bakeoff.
 
 It is designed for use on the [CloudLab](https://www.cloudlab.us/) testbed.
 
