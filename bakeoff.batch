@@ -44,17 +44,17 @@
 [Batch::global]
 # Change below to suit the environment (also see sce and l4s sections)
 m1_ssh = M1
-m1_left_iface = ens192
-m1_right_iface = ens224
+m1_left_iface = LEFTM1IFACE
+m1_right_iface = RIGHTM1IFACE
 m2_ssh = M2
-m2_left_iface = ens192
-m2_right_iface = ens224
+m2_left_iface = LEFTM2IFACE
+m2_right_iface = RIGHTM2IFACE
 m3_ssh = M3
-m3_left_iface = ens192
-m3_right_iface = ens224
+m3_left_iface = LEFTM3IFACE
+m3_right_iface = RIGHTM3IFACE
 m4_ssh = M4
-m4_left_iface = ens192
-m4_right_iface = ens224
+m4_left_iface = LEFTM4IFACE
+m4_right_iface = RIGHTM4IFACE
 # Don't need to change below here
 abstract = yes
 m1_ifaces = ${m1_left_iface},${m1_right_iface}
@@ -96,9 +96,9 @@ draft_name = SCE
 [Batch::l4s]
 abstract = yes
 c_ssh = client
-c_right_iface = ens192
+c_right_iface = RIGHTCLIFACE
 s_ssh = dstn
-s_left_iface = ens192
+s_left_iface = LEFTDSIFACE
 hosts = dstn
 draft_name = L4S
 
