@@ -20,6 +20,5 @@ sudo sed -i "s/LEFTM4IFACE/$m4_left/g" bakeoff.batch
 sudo sed -i "s/RIGHTM4IFACE/$m4_right/g" bakeoff.batch
 sudo sed -i "s/LEFTDSIFACE/$dstn_left/g" bakeoff.batch
 
-./run.sh $1
 
 
