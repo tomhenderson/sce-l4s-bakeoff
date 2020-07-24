@@ -21,7 +21,7 @@ The designated client setup script in the Git repo will run automatically on the
 If you make changes to these scripts, you may need to see the log files to debug your changes. The logs for the startup scripts are located at:
 
 ```
-/var/tmp/startup-0.txt
+/var/tmp/startup-1.txt
 ```
 
 
@@ -65,7 +65,9 @@ in your shell on the client node. Then, visit the URL in another tab on your bro
 
 The L4S kernel on the `client`, `m1`, `m3`, and `dstn` nodes is from [L4STeam on Github](https://github.com/L4STeam/linux/), commit [3b63cc04e75f3fb450f34aede1b65364a402be80](https://github.com/L4STeam/linux/commit/3b63cc04e75f3fb450f34aede1b65364a402be80).
 
-To use a different kernel, or to modify the kernel, you may follow these instructions:
+To use a different kernel, or to modify the kernel, you may follow these steps:
+
+(On the node at which you want to build a new kernel)
 
 first install prerequisites :
 
@@ -83,6 +85,7 @@ Now, you may clone a linux kernel from a github repository of your choice. As an
 
 ```
 sudo git clone https://github.com/L4STeam/linux.git
+cd linux
 sudo git checkout testing
 
 ```
