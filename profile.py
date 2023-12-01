@@ -129,7 +129,7 @@ import geni.rspec.emulab as emulab
 pc = portal.Context()
 
 # Describe the parameter(s) this profile script can accept.
-pc.defineParameter( "git", "Link to Git repository containing flent configuration", portal.ParameterType.STRING, "https://github.com/ffund/sce-l4s-bakeoff")
+pc.defineParameter( "git", "Link to Git repository containing flent configuration", portal.ParameterType.STRING, "https://github.com/tomhenderson/sce-l4s-bakeoff")
 pc.defineParameter( "client", "Name of client setup script", portal.ParameterType.STRING, "client-setup.sh")
 pc.defineParameter( "dstn", "Name of server setup script", portal.ParameterType.STRING, "dstn-setup.sh")
 
@@ -154,73 +154,45 @@ node_client.addService(pg.Execute(shell="sh", command="/usr/bin/sudo /usr/bin/gi
 # Node M1
 node_M1 = request.RawPC('M1')
 node_M1.disk_image = 'urn:publicid:IDN+wisc.cloudlab.us+image+cloudlab-PG0//l4s-apr25'
-iface1 = node_M1.addInterface('interface-5')
-iface2 = node_M1.addInterface('interface-1')
+iface1 = node_M1.addInterface('interface-1')
+iface2 = node_M1.addInterface('interface-2')
 bs1 = node_M1.Blockstore("bs1", "/kernel")
 bs1.size = "30GB"
 
 
-# Node dstn
-node_dstn = request.RawPC('dstn')
-node_dstn.disk_image = 'urn:publicid:IDN+wisc.cloudlab.us+image+cloudlab-PG0//l4s-apr25'
-iface3 = node_dstn.addInterface('interface-8')
-bs5 = node_dstn.Blockstore("bs5", "/kernel")
-bs5.size = "30GB"
-node_dstn.addService(pg.Execute(shell="sh", command="/usr/bin/sudo /usr/bin/git clone " + params.git+ " /tmp/custom-repo; cd /tmp/custom-repo; /usr/bin/sudo bash " + params.dstn))
-
 # Node M2
 node_M2 = request.RawPC('M2')
 node_M2.disk_image = 'urn:publicid:IDN+wisc.cloudlab.us+image+cloudlab-PG0//l4s-apr25'
+iface3 = node_M2.addInterface('interface-3')
 iface4 = node_M2.addInterface('interface-4')
-iface5 = node_M2.addInterface('interface-2')
 bs2 = node_M2.Blockstore("bs2", "/kernel")
 bs2.size = "30GB"
 
-# Node M3
-node_M3 = request.RawPC('M3')
-node_M3.disk_image = 'urn:publicid:IDN+wisc.cloudlab.us+image+cloudlab-PG0//l4s-apr25'
-iface6 = node_M3.addInterface('interface-7')
-iface7 = node_M3.addInterface('interface-3')
-bs3 = node_M3.Blockstore("bs3", "/kernel")
-bs3.size = "30GB"
-
-# Node M4
-node_M4 = request.RawPC('M4')
-node_M4.disk_image = 'urn:publicid:IDN+wisc.cloudlab.us+image+cloudlab-PG0//l4s-apr25'
-iface8 = node_M4.addInterface('interface-6')
-iface9 = node_M4.addInterface('interface-9')
-bs4 = node_M4.Blockstore("bs4", "/kernel")
-bs4.size = "30GB"
-
-# Link link-2
-link_2 = request.Link('link-2')
-link_2.Site('undefined')
-link_2.addInterface(iface4)
-link_2.addInterface(iface1)
-
-# Link link-3
-link_3 = request.Link('link-3')
-link_3.Site('undefined')
-link_3.addInterface(iface8)
-link_3.addInterface(iface6)
-
-# Link link-4
-link_4 = request.Link('link-4')
-link_4.Site('undefined')
-link_4.addInterface(iface3)
-link_4.addInterface(iface9)
+# Node dstn
+node_dstn = request.RawPC('dstn')
+node_dstn.disk_image = 'urn:publicid:IDN+wisc.cloudlab.us+image+cloudlab-PG0//l4s-apr25'
+iface5 = node_dstn.addInterface('interface-5')
+bs5 = node_dstn.Blockstore("bs5", "/kernel")
+bs5.size = "30GB"
+node_dstn.addService(pg.Execute(shell="sh", command="/usr/bin/sudo /usr/bin/git clone " + params.git+ " /tmp/custom-repo; cd /tmp/custom-repo; /usr/bin/sudo bash " + params.dstn))
 
 # Link link-0
 link_0 = request.Link('link-0')
 link_0.Site('undefined')
 link_0.addInterface(iface0)
-link_0.addInterface(iface2)
+link_0.addInterface(iface1)
 
 # Link link-1
 link_1 = request.Link('link-1')
 link_1.Site('undefined')
-link_1.addInterface(iface5)
-link_1.addInterface(iface7)
+link_1.addInterface(iface2)
+link_1.addInterface(iface3)
+
+# Link link-2
+link_2 = request.Link('link-2')
+link_2.Site('undefined')
+link_2.addInterface(iface4)
+link_2.addInterface(iface5)
 
 
 # Print the generated rspec
